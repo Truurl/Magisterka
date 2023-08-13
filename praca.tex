@@ -6,6 +6,7 @@
 	\usepackage[T1]{fontenc}
 	\usepackage[utf8]{inputenc}
 	\usepackage[polish]{babel}
+	\usepackage{helvet}
 	\usepackage{graphicx}
 	\usepackage{wrapfig}
 	\usepackage{microtype}
@@ -24,9 +25,9 @@
 	\usepackage{hypcap}
 	\usepackage{blindtext}
 	\usepackage{titlesec}
-	\usepackage{bytefield}
 	\usepackage[backend=biber, style=ieee]{biblatex}
     \usepackage{indentfirst}
+	
 % 	\bibliographystyle{acm}
 	\addbibresource{src/bibliography/refrences.bib}
 % 	\bibliographystyle{unsrt}
@@ -51,26 +52,30 @@
 	\onehalfspacing	
 
 \begin{document}
-    
-    \input{src/title_page/strona_tytułowa.tex}
+	
+    \input{src/title_page/title_page.tex}
     
     \input{src/misc/oswiadczenie.tex}
 
 % 	\pagenumbering{arabic}
 	\tableofcontents
 	
-	\chapter*{Wstęp}
-		\addcontentsline{toc}{chapter}{Wstęp}
-		\pagebreak
-	\chapter*{Cel pracy}
-	\chapter*{Zakres pracy}
-	\chapter{Teoria}
+	\chapter{Wprowadzenie}
 		\justify
+		\section{Cel pracy}
+			\pagebreak
+		\section{Kontekst i znaczenie tematu}
+			\pagebreak
+	\input{{src/chapters/chapter1.tex}}
+	\input{{src/chapters/chapter2.tex}}
+	% \input{{src/chapters/chapter3.tex}}
     \chapter{Część praktyczna}
         \justify
     \chapter{Eksperymenty i wyniki}
-        \justify
-    \chapter*{Podsumowanie}
+		\justify
+		\section{Wybór metryk jakości obrazów}
+	\input{{src/chapters/summary.tex}}
+		% \addcontentsline{toc}{chapter}{Podsumowanie}
     \addcontentsline{toc}{chapter}{Bibliografia}
     \printbibliography
     \pagebreak
