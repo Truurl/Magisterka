@@ -1,0 +1,16 @@
+praca.(aux|bbl|bcf|clg|fdb_latexmk|fls|lof|log|out|run.xml|synctex.gz|tox)
+praca.aux
+praca.bbl
+praca.bcf
+praca.blg
+praca.clg
+praca.fdb_latexmk
+praca.fls
+praca.lot
+praca.log
+praca.lof
+praca.out
+praca.run.xml
+praca.synctex.gz
+praca.toc
+praca.pdf
