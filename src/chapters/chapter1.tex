@@ -1,0 +1,39 @@
+
+\chapter{Przegląd literatury}
+    \justify    
+    \section{Domain adaptation}
+            W wielu przypadkach uczenie maszynowe zakłada, że zbióry danych treningowe i testowe (również rozumiane jako realne środowisko) pochodzą
+        z identycznych rozkładów lub posiadają podobny rozkład cech. Przyjmując takie założenia można spodziewać się, że poprawnie wyszkolony model
+        nie powinien tracić na jakości, gdy zmienni się jego środowisko pracy - przenosząc go ze środowisko szkoleniowego do ptawdziwego życia.
+        Praktyka pokazuję, że takie założenie jest błędne, typowym jest to, że jakość działania modelu spada przy zmiannach środowiska pracy. 
+        Spowodowane jest to, rożnicą w dystrybicji zbirów danych (testowych i treningowych) oraz realnym środowiskiem. Powodem różnych dystrybucji
+        danych jest trudność w zdobywaniu danych o tych samych własnościach, żródeł itp. dodatkowo przywykło się do stotowania publicznych 
+        zbiorów danych - tworzenie nowych jest bardzo kosztowe oraz czasochłonne\cite{domain_adaptation_review}.
+        \par
+            Zagadnienie \textit{domain adaptataion} związane jest z następującymi pojęciami. Zbiorry treningowe i testowe nazywane są jako 
+        \textit{source domain} i \textit{target domain}. Różnicę w rozkładach w angielskiej numeroklaturze określa się zwrotem \textit{domain gap},
+        natomiast pogorszenie jakości działania modelu nazywa się \textit{domain shift}. Podane zwroty będą stosowane naprzemmienie z polskimi 
+        tłumaczeniami. 
+        \par  
+            Rozwiązaniem powyższego problemu jest nowa dziedzina związana z uczeniem mawszynowynm \textit{Domain adaptation}. Techniki adaptacji domeny
+        pozwalają modelom uczenia mszynowego na odowiednią naukę taką, aby mogły sobie świetnie radzić w realnych zastotowaniach czy też w zbioprach 
+        testowych. \textit{Doman adaptation} jest to w pewnym rozumiemu \textit{transfer learning}\cite{transfer_learning}. Obie dziedziny starają się
+        rozwiązać ten sam problem ale na dwa różne sposoby. Wspólnym mianownikiem obu przypadków jest to, że starają się poprawić jakość działania modelu
+        mając nie wystarczającą ilość danych (rozumianą jako \textit{target domain}) poprzez wykorzystanie wiedzy wydobytej z innego zbioru danych 
+        (\textit{source domain}). Przypadki \textit{transfer learning} to sytuacje gdzie zadanie modelu jest zmieniane, ale domena może być pozostawiona lub może
+        się zmienić pomiędzy \textit{source} i \textit{target}. Natomiast w sytuacjach \textit{domain adaptation} zadnaie dla modelu uczenia maszynowego się 
+        nie zmienia, za to \textit{source domain} i \textit{target domain} rożnią się wzgledem siebie. \par
+            Istnieją jeszze inne metody radzenia z wyżej opisanym problemem. \textit{Semi-supervised classification}\cite{semi-sup-learning} jest jedną z takich 
+        metod. Polega ona, na tworzeniu modeli uczenia maszynowego, którą korzystają z danych z etykietami oraz bez etykiet (ang. label), przy czym zakłada się, 
+        że oba zbiory danych pochodźa z tego samego rozkładu prawpodobieństwa. Kolejną metodą jest \textit{Multi task learning}\cite{multitask-learning}, które
+        stara się polepszyć generalizację pomiędzy wioeloma spokrewinonymi zadaniami poprzez jednoczesne szkolenie. Można, załozyć że podbne zadania będą 
+        musiały korzystać ze wspołnych informacji, Model uczony w taki sposób, zmuszony jest do dokładnego poznania struktury danych oraz współdzielenia 
+        reprezentacji danych pomiędzy różnymi zadaniami. \textit{Multi task learning} i \textit{Transer learning} stosują podobne metody m.in wspóldzielenie 
+        parametrów, transformacja cech, jednakże \textit{transer learning} jest wykorzystywany do poprawy działania modelu poprzez najpierw uczenia go na 
+        \textit{source domain} a później transferu wydobytej wiedzy do \textit{target domain}. \textit{Multi task learning} skupia się na poprawy jakości 
+        wielu spokrewinoch zadań poprzez wspólne uczenie.
+         \pagebreak 
+    \section{Domain gap}
+        \pagebreak
+    \section{Przegląd technik domain adaptation}
+        \pagebreak
