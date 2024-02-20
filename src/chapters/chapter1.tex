@@ -2,37 +2,59 @@
 \chapter{Przegląd literatury}
     \justify    
     \section{Domain adaptation}
-            W wielu przypadkach uczenie maszynowe zakłada, że zbióry danych treningowe i testowe (również rozumiane jako realne środowisko) pochodzą
-        z identycznych rozkładów lub posiadają podobny rozkład cech. Przyjmując takie założenia można spodziewać się, że poprawnie wyszkolony model
-        nie powinien tracić na jakości, gdy zmienni się jego środowisko pracy - przenosząc go ze środowisko szkoleniowego do ptawdziwego życia.
-        Praktyka pokazuję, że takie założenie jest błędne, typowym jest to, że jakość działania modelu spada przy zmiannach środowiska pracy. 
-        Spowodowane jest to, rożnicą w dystrybicji zbirów danych (testowych i treningowych) oraz realnym środowiskiem. Powodem różnych dystrybucji
-        danych jest trudność w zdobywaniu danych o tych samych własnościach, żródeł itp. dodatkowo przywykło się do stotowania publicznych 
-        zbiorów danych - tworzenie nowych jest bardzo kosztowe oraz czasochłonne\cite{domain_adaptation_review}.
+         W wielu przypadkach uczenie maszynowe zakłada, że zbióry danych treningowe i testowe (również rozumiane jako realne środowisko) pochodzą z identycznych rozkładów lub posiadają podobny rozkład cech. Przyjmując takie założenia można spodziewać się, że poprawnie wyszkolony model nie powinien tracić na jakości, gdy zmienni się jego środowisko pracy - przenosząc go ze środowisko szkoleniowego do ptawdziwego życia. Praktyka pokazuję, że takie założenie jest błędne, typowym jest to, że jakość działania modelu spada przy zmiannach środowiska pracy. Spowodowane jest to, rożnicą w dystrybicji zbirów danych (testowych i treningowych) oraz realnym środowiskiem. Powodem różnych dystrybucji danych jest trudność w zdobywaniu danych o tych samych własnościach, żródeł itp. dodatkowo przywykło się do stotowania publicznych zbiorów danych - tworzenie nowych jest bardzo kosztowe oraz czasochłonne\cite{domain_adaptation_review}.
         \par
-            Zagadnienie \textit{domain adaptataion} związane jest z następującymi pojęciami. Zbiorry treningowe i testowe nazywane są jako 
-        \textit{source domain} i \textit{target domain}. Różnicę w rozkładach w angielskiej numeroklaturze określa się zwrotem \textit{domain gap},
-        natomiast pogorszenie jakości działania modelu nazywa się \textit{domain shift}. Podane zwroty będą stosowane naprzemmienie z polskimi 
-        tłumaczeniami. 
+        Zagadnienie \textit{domain adaptataion} związane jest z następującymi pojęciami. Zbiorry treningowe i testowe nazywane są jako \textit{source domain} i \textit{target domain}. Różnicę w rozkładach w angielskiej numeroklaturze określa się zwrotem \textit{domain gap}, natomiast pogorszenie jakości działania modelu nazywa się \textit{domain shift}. Podane zwroty będą stosowane naprzemmienie z polskimi tłumaczeniami. 
         \par  
-            Rozwiązaniem powyższego problemu jest nowa dziedzina związana z uczeniem mawszynowynm \textit{Domain adaptation}. Techniki adaptacji domeny
-        pozwalają modelom uczenia mszynowego na odowiednią naukę taką, aby mogły sobie świetnie radzić w realnych zastotowaniach czy też w zbioprach 
-        testowych. \textit{Doman adaptation} jest to w pewnym rozumiemu \textit{transfer learning}\cite{transfer_learning}. Obie dziedziny starają się
-        rozwiązać ten sam problem ale na dwa różne sposoby. Wspólnym mianownikiem obu przypadków jest to, że starają się poprawić jakość działania modelu
-        mając nie wystarczającą ilość danych (rozumianą jako \textit{target domain}) poprzez wykorzystanie wiedzy wydobytej z innego zbioru danych 
-        (\textit{source domain}). Przypadki \textit{transfer learning} to sytuacje gdzie zadanie modelu jest zmieniane, ale domena może być pozostawiona lub może
-        się zmienić pomiędzy \textit{source} i \textit{target}. Natomiast w sytuacjach \textit{domain adaptation} zadnaie dla modelu uczenia maszynowego się 
-        nie zmienia, za to \textit{source domain} i \textit{target domain} rożnią się wzgledem siebie. \par
-            Istnieją jeszze inne metody radzenia z wyżej opisanym problemem. \textit{Semi-supervised classification}\cite{semi-sup-learning} jest jedną z takich 
-        metod. Polega ona, na tworzeniu modeli uczenia maszynowego, którą korzystają z danych z etykietami oraz bez etykiet (ang. label), przy czym zakłada się, 
-        że oba zbiory danych pochodźa z tego samego rozkładu prawpodobieństwa. Kolejną metodą jest \textit{Multi task learning}\cite{multitask-learning}, które
-        stara się polepszyć generalizację pomiędzy wioeloma spokrewinonymi zadaniami poprzez jednoczesne szkolenie. Można, załozyć że podbne zadania będą 
-        musiały korzystać ze wspołnych informacji, Model uczony w taki sposób, zmuszony jest do dokładnego poznania struktury danych oraz współdzielenia 
-        reprezentacji danych pomiędzy różnymi zadaniami. \textit{Multi task learning} i \textit{Transer learning} stosują podobne metody m.in wspóldzielenie 
-        parametrów, transformacja cech, jednakże \textit{transer learning} jest wykorzystywany do poprawy działania modelu poprzez najpierw uczenia go na 
-        \textit{source domain} a później transferu wydobytej wiedzy do \textit{target domain}. \textit{Multi task learning} skupia się na poprawy jakości 
-        wielu spokrewinoch zadań poprzez wspólne uczenie.
-         \pagebreak 
+        Rozwiązaniem powyższego problemu jest nowa dziedzina związana z uczeniem mawszynowynm \textit{Domain adaptation}. Techniki adaptacji domeny pozwalają modelom uczenia mszynowego na odowiednią naukę taką, aby mogły sobie świetnie radzić w realnych zastotowaniach czy też w zbioprach testowych. \textit{Doman adaptation} jest to w pewnym rozumiemu \textit{transfer learning}\cite{transfer_learning}. Obie dziedziny starają się
+        rozwiązać ten sam problem ale na dwa różne sposoby. Wspólnym mianownikiem obu przypadków jest to, że starają się poprawić jakość działania modelu mając nie wystarczającą ilość danych (rozumianą jako \textit{target domain}) poprzez wykorzystanie wiedzy wydobytej z innego zbioru danych (\textit{source domain}). Przypadki \textit{transfer learning} to sytuacje gdzie zadanie modelu jest zmieniane, ale domena może być pozostawiona lub może się zmienić pomiędzy \textit{source} i \textit{target}. Natomiast w sytuacjach \textit{domain adaptation} zadnaie dla modelu uczenia maszynowego się nie zmienia, za to \textit{source domain} i \textit{target domain} rożnią się wzgledem siebie.
+        \par
+        Istnieją jeszze inne metody radzenia z wyżej opisanym problemem. \textit{Semi-supervised classification}\cite{semi-sup-learning} jest jedną z takich metod. Polega ona, na tworzeniu modeli uczenia maszynowego, którą korzystają z danych z etykietami oraz bez etykiet (ang. label), przy czym zakłada się, że oba zbiory danych pochodźa z tego samego rozkładu prawpodobieństwa. Kolejną metodą jest \textit{Multi task learning}\cite{multitask-learning}, które stara się polepszyć generalizację pomiędzy wioeloma spokrewinonymi zadaniami poprzez jednoczesne szkolenie. Można, załozyć że podbne zadania będą musiały korzystać ze wspołnych informacji, Model uczony w taki sposób, zmuszony jest do dokładnego poznania struktury danych oraz współdzielenia reprezentacji danych pomiędzy różnymi zadaniami. \textit{Multi task learning} i \textit{Transer learning} stosują podobne metody m.in wspóldzielenie parametrów, transformacja cech, jednakże \textit{transer learning} jest wykorzystywany do poprawy działania modelu poprzez najpierw uczenia go na \textit{source domain} a później transferu wydobytej wiedzy do \textit{target domain}. \textit{Multi task learning} skupia się na poprawy jakości wielu spokrewinoch zadań poprzez wspólne uczenie.
+        \par
+        Kolejną metodą jest \textit{multi-view learning}, które korzysta z wielu różnych zbiorówch danych, które różnią się cechami. Przykładami takich połączeń mogą być: dźwięk + film, obraz + tekst i tekst + tekst (przykładem może być strona internetowa, posiada on kod źródłowy i informacje czesto w postaci tekstu). Taki typ uczenia maszynowego uzasadnia się tym, że mieszanie zbiorów poniekąd tworzy pewien komplementarny opis danych co poprawia działanie modelu. 
+        \par
+        Ostanią motodę podobną do \textit{domain adaptation} jest \textit{domain generalization}\cite{domain-generalization}, czyli uczenie maszynowe korzystające z wielu zbiorów danych treningowych (\textit{source domain}) co zwiększa liczbę oznakowanych danych, przez co model powinien lepiej generalizowac dane wejściowe. Jest to bardzo podobne podejście do \textit{domain adaptation}, ale z tą różnicą, że \textit{target domain} nie jest znane podczas procesu treningu. Techniki \textit{domain adaptation} wymagają znania \textit{target domain}, aby można było skompensować \textit{domain shift}.
+        
+        \subsection{Definicja domain adaptation}
+            Rozważając problematykę \textit{domain adaptation}, zbiory danych, czyli domeny (ang. domain) uznaje się za struktury złożone z trzech elementów:
+            \begin{equation*}
+                \mathcal{D} = \{\mathcal{X},\mathcal{Y},p(x,y)\}
+            \end{equation*}
+            gdzie:
+            
+            \begin{tabular}{rl}
+                $\mathcal{X}$ -& przestrzeń cech danego zbioru danych \\
+                $\mathcal{Y}$ -& przestrzeń etykiet danego zbioru danych \\
+                $p(x,y)$ -& rozkład prawpodobieństwa przestrzeni cech i etykiet zbiorów
+            \end{tabular}
+            \linebreak
+            % \begin{eqexpl}[25mm]
+            %     \item{$\mathcal{X}$} przestrzeń cech danego zbioru danych
+            %     \item{$\mathcal{Y}$} przestrzeń etykiet danego zbioru danych 
+            %     \item{$p(x,y)$} rozkład prawpodobieństwa przestrzeni cech i etykiet zbiorów 
+            % \end{eqexpl}
+            
+            Sama przestrzeń $\mathcal{X}$ jest podzbiorem d wymiarowej przestrzeni, $\mathcal{X} \subset \mathbb{R}^{d}$, natomiast przestrzeń $\mathcal{Y}$ to przestrzeń binarna $\{ -1, 1\}$ lub wieloklasowa przestrzeń $\{1,2\cdots K \}$, gdzie $K$ to liczba klas w danym zbiorze danych. Przez $p(x,y)$ to połączony rozkład prawpodobieńst przestrzeni par cecha-etykieta $\mathcal{X} \times \mathcal{Y}$. Samo $p(x,y)$ może zostać rozłożonę na następujące równanie:
+            \begin{equation*}
+                p(x,y) = p(x)p(x|y) = p(y)(p(y|x)
+            \end{equation*}
+            \par
+            Wykonuwując próbę losową na zbirze treningwowym $\mathcal{S}$ oraz testowym $\mathcal{T}$ otzrymujemy pary cecha-etykieta
+            $\x_i, y_i)\}^{n}_{i=1}$, gdziie \textit{n} oznacza liczbę próbek ze zbioru \textit{source domain}. Analogicznie dla \textit{target domain} można wydedukować $\{(z_i, y_i)\}^{m}_{i=1}$. W przypadku, gdy \textit{source domain} i \textit{target domain} są do sibie zbliżone tzn. mają podobne cechy i reprezentują podobne obiekty, ale posiadają różen rozjkłądy prawpodobieństw to można założyć, że ekstrapolując wiedźę wydobytą z jednego zbioru danych (\textit{source domain}, otrzymamy pogorszoną jakość działania modelu uczenia maszynowego na zbiorze \textit{target domain}.
+            
+            zbiory par cech
+
+            Given a source domain S and a target domain T , the source dataset samples drawn from the source domain consist of
+feature-label pairs {(xi, yi)}n
+i=1, where n is the number of samples in the source data set. Similarly, the target data set
+can be denoted as {zi, ui}m
+i=1, where (zi, ui) refers to the target samples and their associated labels. In unsupervised
+domain adaptation where the labels are not available in the target domain, u is unknown. When the source and
+target domains are related but from different distributions, naively extending the underlying knowledge contained in
+one domain into another might negatively affect the learner’s performance in the target domain. Therefore, domain
+
+            
+    \pagebreak 
     \section{Domain gap}
         \pagebreak
     \section{Przegląd technik domain adaptation}

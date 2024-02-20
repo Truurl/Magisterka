@@ -27,7 +27,13 @@
 	\usepackage{titlesec}
 	\usepackage[backend=biber, style=ieee]{biblatex}
     \usepackage{indentfirst}
-	
+    \usepackage{csquotes}
+
+    % MATH PACKAGES
+    \usepackage{amsmath}
+    \usepackage{amssymb}
+    \usepackage{eqexpl}
+ 
 % 	\bibliographystyle{acm}
 	\addbibresource{src/bibliography/refrences.bib}
 % 	\bibliographystyle{unsrt}
@@ -60,20 +66,16 @@
 % 	\pagenumbering{arabic}
 	\tableofcontents
 	
-	\chapter{Wprowadzenie}
-		\justify
-		\section{Cel pracy}
-			\pagebreak
-		\section{Kontekst i znaczenie tematu}
-			\pagebreak
+	% \chapter{Wprowadzenie}
+	% 	\justify
+	% 	\section{Cel pracy}
+	% 		\pagebreak
+	% 	\section{Kontekst i znaczenie tematu}
+	% 		\pagebreak
+	\input{{src/chapters/introduction.tex}}
 	\input{{src/chapters/chapter1.tex}}
 	\input{{src/chapters/chapter2.tex}}
-	% \input{{src/chapters/chapter3.tex}}
-    \chapter{Część praktyczna}
-        \justify
-    \chapter{Eksperymenty i wyniki}
-		\justify
-		\section{Wybór metryk jakości obrazów}
+	\input{{src/chapters/chapter3.tex}}
 	\input{{src/chapters/summary.tex}}
 		% \addcontentsline{toc}{chapter}{Podsumowanie}
     \addcontentsline{toc}{chapter}{Bibliografia}
