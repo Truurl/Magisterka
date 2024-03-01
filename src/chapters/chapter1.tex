@@ -1,11 +1,11 @@
 
 \chapter{Przegląd literatury}
-    \justify    
+    \justify  
     \section{Domain adaptation}
-         W wielu przypadkach uczenie maszynowe zakłada, że zbióry danych treningowe i testowe (również rozumiane jako realne środowisko) pochodzą z identycznych rozkładów lub posiadają podobny rozkład cech. Przyjmując takie założenia można spodziewać się, że poprawnie wyszkolony model nie powinien tracić na jakości, gdy zmienni się jego środowisko pracy - przenosząc go ze środowisko szkoleniowego do ptawdziwego życia. Praktyka pokazuję, że takie założenie jest błędne, typowym jest to, że jakość działania modelu spada przy zmiannach środowiska pracy. Spowodowane jest to, rożnicą w dystrybicji zbirów danych (testowych i treningowych) oraz realnym środowiskiem. Powodem różnych dystrybucji danych jest trudność w zdobywaniu danych o tych samych własnościach, żródeł itp. dodatkowo przywykło się do stotowania publicznych zbiorów danych - tworzenie nowych jest bardzo kosztowe oraz czasochłonne\cite{domain_adaptation_review}.
+         W wielu przypadkach uczenie maszynowe zakłada, że zbióry danych treningowe i testowe (również rozumiane jako realne środowisko) pochodzą z identycznych rozkładów lub posiadają podobny rozkład cech. Przyjmując takie założenia można spodziewać się, że poprawnie wyszkolony model nie powinien tracić na jakości, gdy zmienni się jego środowisko pracy - przenosząc go ze środowisko szkoleniowego do ptawdziwego życia. Jednak praktyka pokazuję, że to założenie często nie znajduje potwierdzenia a jakość działania modelu obniża się przy zmianach środowiska pracy. Jest to spowodowane różnicą w dystrybucji zbiorów danych (testowych i treningowych) oraz realnym środowiskiem. Zróżnicowane dystrybucje danych wynikają z trudności w pozyskiwaniu danych o jednolitych właściwościach, co jest dodatkowo skomplikowane przez powszechne stosowanie publicznych zbiorów danych, a tworzenie nowych jest kosztowne i czasochłonne\cite{domain_adaptation_review}.
         \par
-        Zagadnienie \textit{domain adaptataion} związane jest z następującymi pojęciami. Zbiorry treningowe i testowe nazywane są jako \textit{source domain} i \textit{target domain}. Różnicę w rozkładach w angielskiej numeroklaturze określa się zwrotem \textit{domain gap}, natomiast pogorszenie jakości działania modelu nazywa się \textit{domain shift}. Podane zwroty będą stosowane naprzemmienie z polskimi tłumaczeniami. 
-        \par  
+        Problem \textit{domain adaptataion} dotyczy sytuacji, w której zbiory danych treningowe i testowe, określane odpowiednio jako \textit{source domain} i \textit{target domain}, charakteryzują się różnicą w rozkładach, znaną jako \textit{domain gap}. Różnica ta prowadzi do pogorszenia jakości działania modelu, zjawiska nazywanego \textit{domain shift}. W celu przeciwdziałania temu problemowi, rozwijana jest dziedzina \textit{domain adaptation}, która za pomocą specyficznych technik adaptacyjnych umożliwia modelom uczenia maszynowego efektywną pracę w różnych, realnych zastosowaniach. Adaptacja domeny, będąc formą \textit{transfer learningu}, ma na celu poprawę działania modelu w sytuacji ograniczonej dostępności danych z \textit{target domain} poprzez wykorzystanie wiedzy z \textit{source domain}. W odróżnieniu od \textit{transfer learningu}, gdzie możliwa jest zmiana zadania modelu, w \textit{domain adaptation} zadanie pozostaje niezmienione, a różnice występują między domenami.
+        \par 
         Rozwiązaniem powyższego problemu jest nowa dziedzina związana z uczeniem mawszynowynm \textit{Domain adaptation}. Techniki adaptacji domeny pozwalają modelom uczenia mszynowego na odowiednią naukę taką, aby mogły sobie świetnie radzić w realnych zastotowaniach czy też w zbioprach testowych. \textit{Doman adaptation} jest to w pewnym rozumiemu \textit{transfer learning}\cite{transfer_learning}. Obie dziedziny starają się
         rozwiązać ten sam problem ale na dwa różne sposoby. Wspólnym mianownikiem obu przypadków jest to, że starają się poprawić jakość działania modelu mając nie wystarczającą ilość danych (rozumianą jako \textit{target domain}) poprzez wykorzystanie wiedzy wydobytej z innego zbioru danych (\textit{source domain}). Przypadki \textit{transfer learning} to sytuacje gdzie zadanie modelu jest zmieniane, ale domena może być pozostawiona lub może się zmienić pomiędzy \textit{source} i \textit{target}. Natomiast w sytuacjach \textit{domain adaptation} zadnaie dla modelu uczenia maszynowego się nie zmienia, za to \textit{source domain} i \textit{target domain} rożnią się wzgledem siebie.
         \par
@@ -28,34 +28,27 @@
                 $p(x,y)$ -& rozkład prawpodobieństwa przestrzeni cech i etykiet zbiorów
             \end{tabular}
             \linebreak
-            % \begin{eqexpl}[25mm]
-            %     \item{$\mathcal{X}$} przestrzeń cech danego zbioru danych
-            %     \item{$\mathcal{Y}$} przestrzeń etykiet danego zbioru danych 
-            %     \item{$p(x,y)$} rozkład prawpodobieństwa przestrzeni cech i etykiet zbiorów 
-            % \end{eqexpl}
             
             Sama przestrzeń $\mathcal{X}$ jest podzbiorem d wymiarowej przestrzeni, $\mathcal{X} \subset \mathbb{R}^{d}$, natomiast przestrzeń $\mathcal{Y}$ to przestrzeń binarna $\{ -1, 1\}$ lub wieloklasowa przestrzeń $\{1,2\cdots K \}$, gdzie $K$ to liczba klas w danym zbiorze danych. Przez $p(x,y)$ to połączony rozkład prawpodobieńst przestrzeni par cecha-etykieta $\mathcal{X} \times \mathcal{Y}$. Samo $p(x,y)$ może zostać rozłożonę na następujące równanie:
             \begin{equation*}
-                p(x,y) = p(x)p(x|y) = p(y)(p(y|x)
+                p(x,y) = p(x)p(x|y) = p(y)(p(y|x))
             \end{equation*}
             \par
             Wykonuwując próbę losową na zbirze treningwowym $\mathcal{S}$ oraz testowym $\mathcal{T}$ otzrymujemy pary cecha-etykieta
-            $\x_i, y_i)\}^{n}_{i=1}$, gdziie \textit{n} oznacza liczbę próbek ze zbioru \textit{source domain}. Analogicznie dla \textit{target domain} można wydedukować $\{(z_i, y_i)\}^{m}_{i=1}$. W przypadku, gdy \textit{source domain} i \textit{target domain} są do sibie zbliżone tzn. mają podobne cechy i reprezentują podobne obiekty, ale posiadają różen rozjkłądy prawpodobieństw to można założyć, że ekstrapolując wiedźę wydobytą z jednego zbioru danych (\textit{source domain}, otrzymamy pogorszoną jakość działania modelu uczenia maszynowego na zbiorze \textit{target domain}.
-            
-            zbiory par cech
-
-            Given a source domain S and a target domain T , the source dataset samples drawn from the source domain consist of
-feature-label pairs {(xi, yi)}n
-i=1, where n is the number of samples in the source data set. Similarly, the target data set
-can be denoted as {zi, ui}m
-i=1, where (zi, ui) refers to the target samples and their associated labels. In unsupervised
-domain adaptation where the labels are not available in the target domain, u is unknown. When the source and
-target domains are related but from different distributions, naively extending the underlying knowledge contained in
-one domain into another might negatively affect the learner’s performance in the target domain. Therefore, domain
-
-            
+            $\{(x_i, y_i)\}^{n}_{i=1}$, gdziie \textit{n} oznacza liczbę próbek ze zbioru \textit{source domain}. Analogicznie dla \textit{target domain} można wydedukować $\{(z_i, y_i)\}^{m}_{i=1}$. W przypadku, gdy \textit{source domain} i \textit{target domain} są do sibie zbliżone tzn. mają podobne cechy i reprezentują podobne obiekty, ale posiadają różne rozkłady prawpodobieństw to można założyć, że ekstrapolując wiedźę wydobytą z jednego zbioru danych (\textit{source domain}, otrzymamy pogorszoną jakość działania modelu uczenia maszynowego na zbiorze \textit{target domain}). 
+        \subsection{Kategorie Domain Adaptation}
+        
     \pagebreak 
     \section{Domain gap}
-        \pagebreak
+    \pagebreak
     \section{Przegląd technik domain adaptation}
-        \pagebreak
+    \pagebreak
+    \section{Generacyjne sieci neuronwoe}
+        Rozwój uczenia maszynowego pozwolił na odkrycie modeli generacyjnych, które zrewolucjonizowały sposób, w jaki maszyny mogą naśladować ludzką kreatywność. Wśród nich, szczególne miejsce zajmuje GAN (Generative Adversarial Network), który został zaprezentowany przez  Iana Goodfellowa i współpracowników w 2014 roku\cite{goodfellow}. Sukces GAN opiera się na ich unikatowej architekturze, składającej się z dwóch sieci uczących się w procesie rywalizacji: generatywnej, która tworzy nowe dane, i dyskryminacyjnej, która ocenia ich autentyczność.\par
+        Celem tej sekcji jest dogłębne przybliżenie modeli GAN,, procesu ich treningu i implementacji. Omówione zostaną kluczowe koncepcje stojące za GAN, architektura tych sieci, a także różnorodne warianty, które powstały na przestrzeni lat. Dodatkowo, rozdział ten rzuci światło na wyzwania związane z treningiem GAN oraz strategie ich przeciwdziałania, zapewniając czytelnikowi kompleksowe zrozumienie tej przełomowej technologii w generatywnym uczeniu maszynowym.
+        \subsection{GAN (Generative Adversarial Network)}
+            Modele GAN (Generative Adversarial Network) to jeden z typów sieci neuronowyc służących do generowania danych. Podstawowym założeniem GAN to dwa modele będące wobec siebie wrogie. Jednym z modeli jest generator G oraz dyskriminator D. Zadaniem generatora jest tworzenie nowych danych, natomiast zadaniem dyskriminatora jest prównywanie syntetycznych danych z docelowymi - zazwyczaj są one danymi rzeczywistymi. Szkolenie modeli typu GAN polega na grze o sumie zerowej\cite{gan-intro}. W każdym kroku sumaryczna poprawa modeli D i G jest zerowa, gdy jeden z modeli polepsza się, drugi traci. 
+            \subsubsection{Architektura GAN}
+            \subsubsection{Problemy modeli typu GAN}
+            \subsubsection{Wariacje GAN}
+    \pagebreak
