@@ -1,10 +1,23 @@
 \chapter{Część praktyczna}
     \justify
 \chapter{Eksperymenty i wyniki}
-	\justify
-	\section{Wybór metryk jakości obrazów}
+	\justify`'
+	\section{Wybór metryk do ewaluacji wyników modelu}
+        Ewaluacja wyników generowanych przez modele Generative Adversarial Networks (GAN) stanowi znaczące wyzwanie. Wynika to z trudności w bezpośrednim porównaniu danych syntetycznych z rzeczywistymi przy użyciu standardowych metod. Szczególnie w kontekście obrazów, ocena musi uwzględniać nie tylko odwzorowanie kształtów i stylu, ale również ogólną jakość wizualną. Kluczowym aspektem dobrych metryk jest ich zdolność do odzwierciedlenia ludzkiej percepcji jakości, co pozwala na obiektywną ocenę stopnia realizmu generowanych obrazów. Adekwatna numeryczna ocena modelu dostarcza cennych informacji zwrotnych, umożliwiając ocenę, czy w trakcie trenowania model ulega poprawie, czyli czy generowane przez niego obrazy stają się bardziej zbliżone do rzeczywistości.
         \subsection{FID (Fréchet inception distance)}
-            Jednym z większych problemów modelów t
-            ypu GAN, jest wybór metryki, która będzie dobrze oceniać czy procesz szkolenia przebiega pomyślnie. Porónywanie syntetycznych orbazów z relanymi wymaga numarycznego przestawienia czy zbiór cech generowanych obrazów zawiera się w zbierze cech obrazów realnych. Metryka FID opiera się an analizie statyyczc znej cech orabzów, które są wudobyane z przeszkolonego modelu \textit{InceptionV3}
+            Fréchet Inception Distance (FID) stanowi jedną z najbardziej uznanych metryk wykorzystywanych do oceny jakości generowanych przez modele Generative Adversarial Networks (GAN) obrazów\cite{gan-metrics}. Kluczową zaletą FID jest jej zdolność do numerycznego porównywania „realności” oraz różnorodności generowanych zdjęć z zestawem danych referencyjnych. Metryka ta korzysta z zaawansowanego modelu \textit{InceptionV3} do ekstrakcji cech obrazów, co pozwala na efektywne porównanie rozkładów cech obrazów syntetycznych i autentycznych. 
+
+            FID mierzy odległość Frécheta (również znaną jako odległość Wassersteina-Gaussa) między dwoma rozkładami cech: generowanymi przez GAN oraz rzeczywistymi obrazami. Niższe wartości FID wskazują na mniejszą odległość między rozkładami, sugerując tym samym wyższą jakość i większe podobieństwo generowanych obrazów do realnych.
+
         \subsection{Dywergencja Kullbacka-Leiblera}
+            Dywergencja Kullbacka-Leiblera to metryka pozwalająca na określenie rozbieżności dwóch rozkladów prawdopodobieństwa. 
+            Formalnie dywergencję definiuje się w następujący sposób:
+            \begin{equation}
+                D_{KL}(P || Q) = \sum_{x \in \mathcal{X}} P(x) \log \left(\frac{P(x)}{Q(x)}\right)
+            \end{equation}
+            gdzie \(D_{KL}(P || Q)\) mierzy, ile informacji traci się, gdy Q jest używane do aproksymacji P. Warto zauważyć, że dywergencja KL nie jest symetryczna, co oznacza, że \(D_{KL}(P || Q) \neq D_{KL}(Q || P)\). Niższe wartości KL wskazują na to, że rozkład P i Q są ze sobą zbieżne.
+
+            Dywergencja KL została wybrana w celu sprawdzenia czy model potrafi odzorować paletę kolórw zdjęć prawdziwych. Danymi wejściowymi do metryki są histogramy kolorów. 
+            
+     \section{}
             
